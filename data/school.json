@@ -1,0 +1,21 @@
+{
+  "teacher": {
+    "id": "teacher-korean-01",
+    "name": "국어 담당 교사"
+  },
+  "subjects": [
+    { "id": "kor-10", "name": "국어(10학년)" },
+    { "id": "lit-11", "name": "문학(11학년)" }
+  ],
+  "classes": [
+    { "id": "10-1", "subjectId": "kor-10", "name": "1학년 1반" },
+    { "id": "10-2", "subjectId": "kor-10", "name": "1학년 2반" },
+    { "id": "11-1", "subjectId": "lit-11", "name": "2학년 1반" }
+  ],
+  "students": [
+    { "id": "S1001", "classId": "10-1", "number": 1, "name": "김서윤" },
+    { "id": "S1002", "classId": "10-1", "number": 2, "name": "박지호" },
+    { "id": "S1003", "classId": "10-2", "number": 3, "name": "이하늘" },
+    { "id": "S1101", "classId": "11-1", "number": 1, "name": "정민서" }
+  ]
+}

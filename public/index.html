@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#b9d7ff" />
+    <title>국어 누가기록 앱</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <main class="app-shell">
+      <header class="glass card-header">
+        <p class="eyebrow">국어 교과 · 학급 관리</p>
+        <h1>누가기록 보드</h1>
+        <p id="storageBadge" class="badge">저장소 확인 중...</p>
+      </header>
+
+      <section class="glass panel">
+        <label>과목</label>
+        <select id="subjectSelect"></select>
+
+        <label>학급</label>
+        <select id="classSelect"></select>
+
+        <label>학생</label>
+        <select id="studentSelect"></select>
+      </section>
+
+      <section class="glass panel">
+        <h2>학생 기록 추가</h2>
+        <label for="lessonTopic">수업 차시/단원</label>
+        <input id="lessonTopic" maxlength="80" placeholder="예: 현대시 감상 3차시" />
+
+        <label for="achievementTags">성취요소(쉼표로 구분)</label>
+        <input id="achievementTags" maxlength="200" placeholder="예: 비판적 읽기, 발표" />
+
+        <label for="observation">관찰 내용</label>
+        <textarea id="observation" maxlength="500" required placeholder="수업 중 성취와 행동을 입력하세요."></textarea>
+
+        <label for="growthNote">성장 메모</label>
+        <textarea id="growthNote" maxlength="500" placeholder="변화·강점·보완점을 입력하세요."></textarea>
+
+        <label for="nextGuide">다음 지도 포인트</label>
+        <textarea id="nextGuide" maxlength="500" placeholder="다음 수업 지도 계획"></textarea>
+
+        <button id="submitBtn">기록 저장</button>
+      </section>
+
+      <section class="glass panel">
+        <h2>최근 기록 (로컬 모드일 때 표시)</h2>
+        <ul id="recentList" class="recent-list"></ul>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>
