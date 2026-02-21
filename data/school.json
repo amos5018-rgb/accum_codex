@@ -5,17 +5,25 @@
   },
   "subjects": [
     { "id": "kor-10", "name": "국어(10학년)" },
-    { "id": "lit-11", "name": "문학(11학년)" }
+    { "id": "lit-11", "name": "문학(11학년)" },
+    { "id": "lang-12", "name": "화법과 작문(12학년)" }
   ],
   "classes": [
     { "id": "10-1", "subjectId": "kor-10", "name": "1학년 1반" },
-    { "id": "10-2", "subjectId": "kor-10", "name": "1학년 2반" },
-    { "id": "11-1", "subjectId": "lit-11", "name": "2학년 1반" }
+    { "id": "11-1", "subjectId": "lit-11", "name": "2학년 1반" },
+    { "id": "12-1", "subjectId": "lang-12", "name": "3학년 1반" }
   ],
   "students": [
     { "id": "S1001", "classId": "10-1", "number": 1, "name": "김서윤" },
     { "id": "S1002", "classId": "10-1", "number": 2, "name": "박지호" },
-    { "id": "S1003", "classId": "10-2", "number": 3, "name": "이하늘" },
-    { "id": "S1101", "classId": "11-1", "number": 1, "name": "정민서" }
+    { "id": "S1003", "classId": "10-1", "number": 3, "name": "이하늘" },
+
+    { "id": "S1101", "classId": "11-1", "number": 1, "name": "정민서" },
+    { "id": "S1102", "classId": "11-1", "number": 2, "name": "최도윤" },
+    { "id": "S1103", "classId": "11-1", "number": 3, "name": "윤지아" },
+
+    { "id": "S1201", "classId": "12-1", "number": 1, "name": "강하준" },
+    { "id": "S1202", "classId": "12-1", "number": 2, "name": "오서현" },
+    { "id": "S1203", "classId": "12-1", "number": 3, "name": "한예린" }
   ]
 }
