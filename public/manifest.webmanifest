@@ -1,0 +1,9 @@
+{
+  "name": "국어 누가기록 앱",
+  "short_name": "누가기록",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#cae2ff",
+  "theme_color": "#b9d7ff",
+  "icons": []
+}

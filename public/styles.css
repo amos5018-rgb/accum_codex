@@ -1,0 +1,148 @@
+:root {
+  color-scheme: light;
+  --ink: #152238;
+  --muted: #415169;
+  --glass: rgba(255, 255, 255, 0.56);
+  --glass-border: rgba(255, 255, 255, 0.52);
+  --shadow: 0 16px 40px rgba(16, 45, 99, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Pretendard", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(165deg, #cae2ff 0%, #e7d8ff 45%, #e2f8ff 100%);
+  padding: env(safe-area-inset-top) 14px env(safe-area-inset-bottom);
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 220px;
+  height: 220px;
+  background: #a8dbff;
+  top: -50px;
+  left: -30px;
+}
+
+.orb-2 {
+  width: 260px;
+  height: 260px;
+  background: #d6b8ff;
+  bottom: -80px;
+  right: -30px;
+}
+
+.app-shell {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+  border-radius: 24px;
+}
+
+.card-header,
+.panel {
+  padding: 18px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.65rem;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.badge {
+  margin: 8px 0 0;
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(20, 40, 80, 0.12);
+  font-size: 0.82rem;
+}
+
+label {
+  display: block;
+  margin: 10px 0 7px;
+  color: #1f3352;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+select,
+textarea,
+button {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font: inherit;
+  padding: 12px 13px;
+}
+
+textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+button {
+  margin-top: 14px;
+  min-height: 48px;
+  border: 0;
+  font-weight: 700;
+  background: linear-gradient(120deg, #4a8fff, #7a66ff);
+  color: #fff;
+}
+
+.recent-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.recent-list li {
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    padding: 14px;
+  }
+}
