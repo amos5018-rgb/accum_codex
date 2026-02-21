@@ -10,6 +10,34 @@ const storageBadge = document.getElementById('storageBadge');
 const submitBtn = document.getElementById('submitBtn');
 const recentList = document.getElementById('recentList');
 
+const fallbackBootstrapData = {
+  teacher: {
+    id: 'teacher-korean-01',
+    name: '국어 담당 교사'
+  },
+  subjects: [
+    { id: 'kor-10', name: '국어(10학년)' },
+    { id: 'lit-11', name: '문학(11학년)' },
+    { id: 'lang-12', name: '화법과 작문(12학년)' }
+  ],
+  classes: [
+    { id: '10-1', subjectId: 'kor-10', name: '1학년 1반' },
+    { id: '11-1', subjectId: 'lit-11', name: '2학년 1반' },
+    { id: '12-1', subjectId: 'lang-12', name: '3학년 1반' }
+  ],
+  students: [
+    { id: 'S1001', classId: '10-1', number: 1, name: '김서윤' },
+    { id: 'S1002', classId: '10-1', number: 2, name: '박지호' },
+    { id: 'S1003', classId: '10-1', number: 3, name: '이하늘' },
+    { id: 'S1101', classId: '11-1', number: 1, name: '정민서' },
+    { id: 'S1102', classId: '11-1', number: 2, name: '최도윤' },
+    { id: 'S1103', classId: '11-1', number: 3, name: '윤지아' },
+    { id: 'S1201', classId: '12-1', number: 1, name: '강하준' },
+    { id: 'S1202', classId: '12-1', number: 2, name: '오서현' },
+    { id: 'S1203', classId: '12-1', number: 3, name: '한예린' }
+  ]
+};
+
 const state = {
   teacher: null,
   subjects: [],
@@ -53,11 +81,22 @@ function refreshStudentSelect() {
 }
 
 async function loadBootstrap() {
-  const response = await fetch('/api/bootstrap');
-  if (!response.ok) {
-    throw new Error('초기 데이터를 불러오지 못했습니다.');
+  let data = null;
+
+  try {
+    const response = await fetch('/api/bootstrap');
+    if (response.ok) {
+      data = await response.json();
+    }
+  } catch (_error) {
+    // 서버 미실행/네트워크 문제 시 아래 fallback fixture를 사용합니다.
   }
-  const data = await response.json();
+
+  if (!data) {
+    data = fallbackBootstrapData;
+    storageBadge.textContent = '오프라인 예시 데이터로 표시 중';
+  }
+
   state.teacher = data.teacher;
   state.subjects = data.subjects;
   state.classes = data.classes;
@@ -70,7 +109,9 @@ async function loadBootstrap() {
 async function loadRecentLocalRecords() {
   const response = await fetch('/api/records/local');
   if (!response.ok) {
-    storageBadge.textContent = '저장소 상태 확인 실패';
+    if (!storageBadge.textContent.includes('오프라인 예시 데이터')) {
+      storageBadge.textContent = '저장소 상태 확인 실패';
+    }
     return;
   }
 
@@ -155,8 +196,4 @@ subjectSelect.addEventListener('change', refreshClassSelect);
 classSelect.addEventListener('change', refreshStudentSelect);
 submitBtn.addEventListener('click', submitRecord);
 
-loadBootstrap()
-  .then(loadRecentLocalRecords)
-  .catch((error) => {
-    storageBadge.textContent = error.message;
-  });
+loadBootstrap().then(loadRecentLocalRecords);
